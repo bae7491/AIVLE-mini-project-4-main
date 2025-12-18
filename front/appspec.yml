@@ -5,11 +5,21 @@ files:
   - source: /
     destination: /home/ubuntu/app
 
+permissions:
+  - object: /home/ubuntu/app
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
+    type:
+      - file
+      - directory
+
 hooks:
   BeforeInstall:
     - location: scripts/install.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
 
   ApplicationStart:
     - location: scripts/start.sh
