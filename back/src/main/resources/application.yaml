@@ -1,0 +1,28 @@
+spring:
+  config:
+    import: optional:application-secret.yaml
+  application:
+    name: jpa
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./library
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+jwt:
+  secret: ${JWT_SECRET}
+  # Access Token 만료 시간 (2시간 = 2 * 60 * 60 * 1000ms)
+  access-expiration: 7200000
+  # Refresh Token 만료 시간 (2주 = 14 * 24 * 60 * 60 * 1000ms)
+  refresh-expiration: 1209600000
+
+external: 
+  api-key: ${EXTERNAL_API_KEY}

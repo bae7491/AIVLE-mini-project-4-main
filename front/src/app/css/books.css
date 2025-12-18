@@ -1,0 +1,186 @@
+/* ===== RESET(충돌 방지) ===== */
+.home-container * {
+  box-sizing: border-box;
+}
+
+.book-card {
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;          /* 기존 margin:auto 같은 것 제거 */
+}
+
+.book-card img,
+.book-thumb img,
+img.book-image {
+  width: 100% !important;       
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+}
+
+/* ===== PAGE ===== */
+.home-container {
+  max-width: 1200px;
+}
+
+.section-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ===== CARD ===== */
+.book-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.14) !important;
+}
+
+/* 카드 내부를 위-아래로 깔끔하게 정렬 */
+.book-card .card-body {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+.book-card .card-footer {
+  padding-top: 0 !important;
+  padding-bottom: 2px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+
+/* ===== THUMB (표지 비율 고정) ===== */
+.book-thumb {
+  width: 100%;
+  padding: 15px;
+  aspect-ratio: 3 / 4;           /* 표지 느낌 */
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  border-radius: 6px;   /* 여백 생기면 둥근 모서리도 자연스럽게 */
+}
+
+/* 이미지 깨졌을 때 fallback */
+.book-thumb.thumb-fallback {
+  background: #ffffff !important;   /* 로드 실패 시 흰 배경 */
+}
+
+.book-thumb.thumb-fallback::before {
+  content: "NO IMAGE";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(0, 0, 0, 0.35);        /* 텍스트만 보이게 유지 */
+}
+
+/* ===== TEXT ===== */
+.book-title {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
+
+  /* 2줄 말줄임 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* 한글이 글자 단위로 세로로 깨지는 것 방지 */
+  word-break: keep-all;
+}
+
+/* ===== FOOTER ===== */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 10;
+  padding-left: 10;
+  /* “자세히 보기” 세로 깨짐 방지 핵심 */
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.book-card:hover .read-more {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.books-count-badge {
+  font-size: 1rem !important;   /* 글자 크기 키우기 */
+  padding: 8px 14px !important;   /* 안쪽 여백 넓히기 */
+  border-radius: 20px !important; /* pill 형태 유지 */
+  font-weight: 700;
+}
+
+.pagination-wrapper {
+  gap: 12px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #f2f2f2;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pagination-container {
+  padding-top: 60px;    
+  margin-bottom: 0 !important;
+}
+
+
+.pagination-container .MuiPaginationItem-root {
+  font-size: 1.1rem;     /* 숫자 크기 증가 */
+  min-width: 40px;       /* 버튼 가로 크기 */
+  height: 40px;          /* 버튼 세로 크기 */
+}

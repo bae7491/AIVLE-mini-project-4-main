@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+
+  pre_build:
+    commands:
+      - npm ci
+
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - .next/**/*
+    - public/**/*
+    - package.json
+    - package-lock.json
+    - next.config.js
+    - appspec.yml
+    - scripts/**/*

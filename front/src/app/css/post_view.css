@@ -1,0 +1,123 @@
+/* 전체 박스 */
+.detail-wrapper {
+  width: 85%;
+  max-width: 950px;
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  min-height: calc(100vh - 220px);
+}
+
+/* 제목 */
+.detail-title-centered {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0; /* 이미 줄여두셨음 */
+}
+
+/* 메타 정보 블록 */
+.meta-block {
+  margin-bottom: 0.6rem; /* 선 위 공간 더 줄이기 */
+}
+
+/* 한 줄 */
+.meta-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: 2px 0;
+  color: #555;
+}
+
+.push-right {
+  margin-left: auto;
+}
+
+/* 사진 + 텍스트 영역 */
+.detail-main-row {
+  display: flex;
+  align-items: stretch; /* 좌/우 높이 맞춤 */
+  gap: 2rem;
+}
+
+/* 표지 이미지 */
+.detail-cover {
+  flex: 0 0 320px;     /* ✅ 폭 고정: 오른쪽이 높이 맞추기 쉬움 */
+  max-width: 380px;
+}
+
+.cover-img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  display: block;
+}
+
+/* ✅ 오른쪽 영역: column + 버튼을 아래로 밀 수 있게 */
+.detail-right {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 설명 & 본문 스타일 */
+.detail-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin-bottom: 0; /* 버튼과의 간격은 버튼쪽에서 관리 */
+}
+
+/* 구분선 */
+.content-divider {
+  margin: 22px 0; /* 필요시 조절 */
+  border: 0;
+  border-top: 2px solid #ddd;
+}
+
+.content-divider2 {
+  margin-top: 6px; 
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 2px solid #ddd;
+}
+
+/* 버튼 행: 아래로 붙이기 */
+.edit-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;     
+  padding-top: 12px;    
+}
+
+/* 수정 버튼 - 딥그레이 톤 */
+.btn-edit {
+    background-color: #4b5563; /* Gray-600 */
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    transition: 0.2s ease;
+}
+
+.btn-edit:hover {
+    background-color: #374151; /* Gray-700 */
+}
+
+/* 삭제 버튼 - 소프트 레드 */
+.btn-delete {
+    background-color: #f87171; /* Red-400 */
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    transition: 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #ef4444; /* Red-500 */
+}

@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+
+  pre_build:
+    commands:
+      - cd back
+      - chmod +x gradlew
+
+  build:
+    commands:
+      - ./gradlew clean build -x test
+
+artifacts:
+  base-directory: back/build/libs
+  files:
+    - "*.war"
