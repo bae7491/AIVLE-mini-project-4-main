@@ -3,6 +3,4 @@ set -e
 export PATH=/usr/local/bin:/usr/bin:/bin
 
 cd /home/ubuntu/app
-
-pm2 delete front || true
-pm2 start npm --name "front" -- start
+npm ci
