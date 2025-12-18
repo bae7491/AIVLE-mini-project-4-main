@@ -1,16 +1,14 @@
 #!/bin/bash
 set -e
 
-APP_DIR="/home/ubuntu/app"
-PM2="/usr/bin/pm2"
-NODE="/usr/bin/node"
-NPM="/usr/bin/npm"
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+APP_DIR="/home/ubuntu/app"
 cd "$APP_DIR"
 
-$NODE -v
-$NPM -v
-$PM2 -v
+node -v
+npm -v
+pm2 -v
 
-$PM2 delete front || true
-$PM2 start npm --name "front" -- start
+pm2 delete front || true
+pm2 start npm --name "front" -- start
